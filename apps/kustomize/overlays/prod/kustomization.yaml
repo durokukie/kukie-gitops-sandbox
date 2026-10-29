@@ -1,0 +1,13 @@
+# The Application points here (overlays/prod); Kukie changes this folder, never base (DURO-133).
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+replicas:
+  - name: api
+    count: 2
+images:
+  - name: public.ecr.aws/docker/library/nginx
+    newTag: 1.29-alpine
+patches:
+  - path: env.yaml

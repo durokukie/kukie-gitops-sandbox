@@ -1,0 +1,4 @@
+# The Application's helm.valueFiles; Kukie changes values here (DURO-137).
+replicaCount: 1
+env:
+  MODE: prod
