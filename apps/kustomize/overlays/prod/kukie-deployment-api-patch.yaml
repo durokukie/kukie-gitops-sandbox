@@ -1,0 +1,15 @@
+# Kukie 가 더한 patch — Deployment api 의 경로 지정 변경.
+# 같은 리소스를 다시 바꾸면 Kukie 가 이 파일을 다시 쓴다 (이 patch 가 없을 때의 렌더 결과와 요청한 결과의 차이).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  template:
+    spec:
+      containers:
+        - name: api
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
